@@ -1,0 +1,15 @@
+.cardDiv{
+    margin: 2vh auto;
+    padding: 1vh;
+    display: flex;
+    flex-direction: row;
+    width: 80vh;
+    height: 15vh;
+    border: 1px solid grey;
+    /* background-color: yellow; */
+}
+
+.cardDiv img{
+    height: 100%;
+    object-fit: cover;
+}
