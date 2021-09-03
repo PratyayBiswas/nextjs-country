@@ -1,9 +1,6 @@
-import React from 'react'
 import Link from 'next/link'
 
 const CountriesList = ({ data }) => {
-
-    console.log(data);
 
     var currentdate = new Date();
     let dateTime = "";

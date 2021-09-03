@@ -6,8 +6,6 @@ import Router from 'next/router'
 export default function Home() {
 
   const [countriesList, setCountriesList] = useState([]);
-  const [search, setSearch] = useState("");
-  const [debouncedSearched, setDebouncedSearched] = useState("");
 
   useEffect(() => {
 
@@ -24,7 +22,6 @@ export default function Home() {
 
   const onSubmit = (event) => {
     if (event.key === 'Enter')
-      console.log(event.target.value);
     Router.push({
       pathname: `/${event.target.value}`
     })

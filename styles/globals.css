@@ -203,6 +203,7 @@ a {
 }
 
 .list-neighbour div img{
+  cursor: pointer;
   margin: auto auto;
   width: 60%;
 }
@@ -228,6 +229,16 @@ a {
     width: 100%;
     display: grid;
     grid-template-columns: auto auto;
+    column-gap: 2rem;
+    row-gap: 2rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .list-neighbour {
+    margin-top: 2rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
     column-gap: 2rem;
     row-gap: 2rem;
   }

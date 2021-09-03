@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import NeighbourList from '../../components/NeighbourList';
 
 export default function details({ jsonData }) {
@@ -19,12 +18,6 @@ export default function details({ jsonData }) {
         
         return languages;
     }
-
-    const router = useRouter();
-    const { name } = router.query;
-
-    console.log(details);
-
 
     return (
         <div className="container-country">
