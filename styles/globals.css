@@ -69,7 +69,8 @@ a {
   box-shadow: 0px 3px 5px 0px grey;
 }
 
-.card img {
+.card-img {
+  background-color: bisque;
   width: 35%;
   object-fit: cover;
 }
@@ -117,7 +118,7 @@ a {
     flex-direction: column;
     align-items: center;
   }
-  .card img {
+  .card-img {
     width: 60%;
     object-fit: cover;
   }
@@ -136,7 +137,7 @@ a {
     flex-direction: column;
     align-items: center;
   }
-  .card img {
+  .card-img {
     width: 60%;
     object-fit: cover;
   }

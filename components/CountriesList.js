@@ -1,4 +1,5 @@
-import Router from 'next/router'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const CountriesList = ({ data }) => {
 
@@ -34,8 +35,9 @@ const CountriesList = ({ data }) => {
                     <span className="card-content">Current date and time: {dateTime}</span>
                     <div className="btn-div">
                         <button>Show Map</button>
-                        <button onClick={() => Router.push({pathname: `/${card.name}`})}>
-                            Details
+                        <button>
+                            <Link href="/[name]" as={`/${card.name}`}>Details
+                            </Link>
                         </button>
                     </div>
                 </div>

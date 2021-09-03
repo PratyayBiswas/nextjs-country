@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import NeighbourList from '../../components/NeighbourList';
+import Image from 'next/image'
 
 export default function details({ jsonData }) {
 

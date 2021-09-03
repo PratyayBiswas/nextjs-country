@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
-export default function NeighbourItem({ code }) {
+export default function NeighbourItem() {
 
     const [codeItem, setCodeItem] = useState([]);
     useEffect(() => {
@@ -17,7 +18,7 @@ export default function NeighbourItem({ code }) {
     }, []);
     return (
         <div>
-            <Link href="/[name]" as={`/${codeItem.name}`}>
+            <Link passHref="/[name]" as={`/${codeItem.name}`}>
                 <img src={codeItem.flag} alt="" />
             </Link>
 
