@@ -24,7 +24,10 @@ const CountriesList = ({ data }) => {
         + ", " + currentdate.getHours()
         + ":" + currentdate.getMinutes();
 
-    const cardList = data.map(card => {
+    const cardList = data.map((card, index) => {
+        if(index === 1){
+            return <div></div>;
+        }
         return (
 
             <div className="card" key={card.name}>

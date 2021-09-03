@@ -26,7 +26,7 @@ export default function Home() {
     if (event.key === 'Enter')
     Router.push({
       pathname: `/${event.target.value}`
-    })
+    });
   }
 
   return (

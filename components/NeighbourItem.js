@@ -18,7 +18,7 @@ export default function NeighbourItem({ code }) {
     }, []);
     return (
         <div>
-            <Link passHref="/[name]" as={`/${codeItem.name}`}>
+            <Link href="/[name]" as={`/${codeItem.name}`}>
                 <img src={codeItem.flag} alt="" />
             </Link>
 
