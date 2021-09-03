@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import NeighbourList from '../../components/NeighbourList';
-import Image from 'next/image'
 
 export default function details({ jsonData }) {
 
@@ -41,7 +40,13 @@ export default function details({ jsonData }) {
                     <span>Timezone: {details.timezones[0]}</span>
                 </div>
             </div>
-            <NeighbourList code={details.borders} />    
+            <div style={{padding: "1rem", marginTop: "4rem", border: "1px solid grey"}}>
+            <h1>Neighbour Countries</h1>
+            <NeighbourList code={details.borders} />
+            </div>
+            <div className="head"></div>
+            
+                
         </div>
     );
 
