@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import CountriesList from '../components/CountriesList'
 import Router from 'next/router'
+import React from 'react'
 
 export default function Home() {
 
+  console.log(React.version);
   const [countriesList, setCountriesList] = useState([]);
 
   useEffect(() => {

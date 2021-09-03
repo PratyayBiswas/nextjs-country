@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Router from 'next/router'
 
 const CountriesList = ({ data }) => {
 
@@ -34,9 +34,8 @@ const CountriesList = ({ data }) => {
                     <span className="card-content">Current date and time: {dateTime}</span>
                     <div className="btn-div">
                         <button>Show Map</button>
-                        <button>
-                            <Link href="/[name]" as={`/${card.name}`}>Details
-                            </Link>
+                        <button onClick={() => Router.push({pathname: `/${card.name}`})}>
+                            Details
                         </button>
                     </div>
                 </div>
