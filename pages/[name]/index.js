@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import NeighbourList from '../../components/NeighbourList';
 
 export default function details({ jsonData }) {
@@ -25,11 +24,13 @@ export default function details({ jsonData }) {
     const { name } = router.query;
 
     console.log(details);
-    // console.log(details.currencies[0].name);
 
 
     return (
         <div className="container-country">
+            <Head>
+                <title>{details.name}</title>
+            </Head>
             <h1>{details.name}</h1>
             <div className="details">
                 <img src={details.flag} alt="" />

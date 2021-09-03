@@ -5,6 +5,27 @@ const CountriesList = ({ data }) => {
 
     console.log(data);
 
+    var currentdate = new Date();
+    let dateTime = "";
+
+    var tempDate = currentdate.getDate();
+    if (tempDate == '1' || tempDate == '21' || tempDate == '31')
+        dateTime += tempDate + "st";
+    if (tempDate === '2' || tempDate === '22')
+        dateTime += tempDate + "nd";
+    if (tempDate == '3' || tempDate == '23')
+        dateTime += tempDate + "rd";
+
+    const monthList = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    var tempDate = currentdate.getMonth();
+    dateTime += " " + monthList[tempDate]
+        + " " + currentdate.getFullYear()
+        + ", " + currentdate.getHours()
+        + ":" + currentdate.getMinutes();
+
     const cardList = data.map(card => {
         return (
 
@@ -13,13 +34,13 @@ const CountriesList = ({ data }) => {
                 <div className="card-body">
                     <span className="card-title">{card.name}</span>
                     <span className="card-content">Currency: {card.currencies[0].name}</span>
-                    <span className="card-content">current date and time: </span>
+                    <span className="card-content">Current date and time: {dateTime}</span>
                     <div className="btn-div">
                         <button>Show Map</button>
                         <button>
                             <Link href="/[name]" as={`/${card.name}`}>Details
                             </Link>
-                            </button>
+                        </button>
                     </div>
                 </div>
 

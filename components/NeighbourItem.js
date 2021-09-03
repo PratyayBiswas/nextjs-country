@@ -22,7 +22,5 @@ export default function NeighbourItem({ code }) {
             </Link>
 
         </div>
-        // <img src={codeItem.flag} alt="" />
-        // <h1>{codeItem.name }</h1>
     )
 }
