@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function NeighbourItem() {
+export default function NeighbourItem({ code }) {
 
     const [codeItem, setCodeItem] = useState([]);
     useEffect(() => {
