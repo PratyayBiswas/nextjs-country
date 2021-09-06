@@ -7,11 +7,18 @@ const NeighbourList = ({ code }) => {
             <NeighbourItem key={data} code={data} />
         )
     })
+
+    if (code.length === 0) {
+        return <h1>No Neighbours</h1>
+    }
+
     return (
+        <>
+            <h1>Neighbour Countries</h1>
             <div className="list-neighbour">
                 {list}
             </div>
-
+        </>
     )
 };
 

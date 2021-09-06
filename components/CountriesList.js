@@ -1,7 +1,42 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
-const CountriesList = ({ data }) => {
+
+const CountriesList = ({ term }) => {
+
+    const [data, setData] = useState([]);
+    const [flag, setFlag] = useState(true);
+
+
+    useEffect(() => {
+
+        async function fetchData() {
+            if (term === '') {
+                const res = await fetch('https://restcountries.eu/rest/v2/all');
+                const jsonData = await res.json();
+                setData(jsonData);
+            }
+            else {
+                const res = await fetch(`https://restcountries.eu/rest/v2/name/${term}`);
+                
+                if (res.status === 200) {
+                    const jsonData = await res.json();
+                    setData(jsonData);
+                }
+                else{
+                    setFlag(false);
+                }
+            }
+
+        }
+
+        fetchData();
+
+
+    }, [term]);
+
+
 
     var currentdate = new Date();
     let dateTime = "";
@@ -24,10 +59,10 @@ const CountriesList = ({ data }) => {
         + ", " + currentdate.getHours()
         + ":" + currentdate.getMinutes();
 
-    const cardList = data.map((card, index) => {
-        if(index === 1){
-            return <div></div>;
-        }
+
+
+    const cardList = data.map((card) => {
+
         return (
 
             <div className="card" key={card.name}>

@@ -1,30 +1,55 @@
 import Head from 'next/head'
-import NeighbourList from '../../components/NeighbourList';
+import CountryDetails from '../../components/CountryDetails';
+// import { useEffect, useState } from 'react';
+// import NeighbourList from '../../components/NeighbourList';
+// import Style from '../../styles/Index.module.css'
 
-export default function details({ jsonData }) {
+const details = () => {
 
-    const details = jsonData[0];
+    // const [jsonData, setJsonData] = useState([]);
+    // const [path, setPath] = useState("");
 
-    const getLanguage = () => {
-        const arr = details.languages;
-        let languages = arr[0].name;
-        
-        for(let i = 1; i < arr.length - 1; i++){
-            languages +=  ", " + arr[i].name;
-        }
+    // useEffect(() => {
+    //         const route = window.location.pathname;
+    //         if(route.localeCompare(path) !== 0){
+    //             setPath(route);
+    //             const fetchData = async () => {
+    //                 const res = await fetch(`https://restcountries.eu/rest/v2/name${route}?fullText=true`);
+    //                 const data = await res.json();
+    //                 setJsonData(data)
+    //                 console.log('calling');
+    //             }
+    //             fetchData();
+    //         }
 
-        if(arr.length > 1)
-        languages +=  " and " + arr[arr.length-1].name;
-        
-        return languages;
-    }
+    //         console.log(route);
+            
+    // })
+
+    // const details = jsonData[0];
+
+    // const getLanguage = () => {
+    //     const arr = details.languages;
+    //     let languages = arr[0].name;
+
+    //     for (let i = 1; i < arr.length - 1; i++) {
+    //         languages += ", " + arr[i].name;
+    //     }
+
+    //     if (arr.length > 1)
+    //         languages += " and " + arr[arr.length - 1].name;
+
+    //     return languages;
+    // }
+
+    // if(jsonData.length === 0)
+    // return <div>Loading</div>
 
     return (
         <div className="container-country">
-            <Head>
-                <title>{details.name}</title>
-            </Head>
-            <h1>{details.name}</h1>
+            
+            <CountryDetails />
+            {/* <h1>{details.name}</h1>
             <div className="details">
                 <img src={details.flag} alt="" />
                 <div>
@@ -40,25 +65,13 @@ export default function details({ jsonData }) {
                     <span>Timezone: {details.timezones[0]}</span>
                 </div>
             </div>
-            <div style={{padding: "1rem", marginTop: "4rem", border: "1px solid grey"}}>
-            <h1>Neighbour Countries</h1>
-            <NeighbourList code={details.borders} />
-            </div>
-            <div className="head"></div>
-            
+            <div className={Style.head}>
                 
+                <NeighbourList code={details.borders} />
+            </div>
+            <div className="head"></div> */}
         </div>
     );
-
-
-
 }
 
-
-export const getServerSideProps = async (context) => {
-    const res = await fetch(`https://restcountries.eu/rest/v2/name/${context.params.name}?fullText=true`);
-    const jsonData = await res.json()
-    return {
-        props: {jsonData}
-    }
-}
+export default details;
