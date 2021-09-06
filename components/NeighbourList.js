@@ -9,15 +9,18 @@ const NeighbourList = ({ code }) => {
     })
 
     if (code.length === 0) {
-        return <h1>No Neighbours</h1>
+        return <h1 style={{textAlign: "center"}}>No Neighbours</h1>
     }
 
     return (
         <>
-            <h1>Neighbour Countries</h1>
+        <div className="head">
+        <h1>Neighbour Countries</h1>
             <div className="list-neighbour">
                 {list}
             </div>
+        </div>
+            
         </>
     )
 };

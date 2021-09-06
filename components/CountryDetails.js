@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import NeighbourList from './NeighbourList'
-import Style from '../styles/Index.module.css'
 import Head from 'next/head';
 
 export default function CountryDetails() {
@@ -63,11 +62,9 @@ export default function CountryDetails() {
                     <span>Timezone: {details.timezones[0]}</span>
                 </div>
             </div>
-            <div className={Style.head}>
+            
 
                 <NeighbourList code={details.borders} />
-            </div>
-            <div className="head"></div>
         </>
     )
 }
