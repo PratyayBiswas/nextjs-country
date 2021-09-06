@@ -1,8 +1,5 @@
 import Head from 'next/head'
 import CountryDetails from '../../components/CountryDetails';
-// import { useEffect, useState } from 'react';
-// import NeighbourList from '../../components/NeighbourList';
-// import Style from '../../styles/Index.module.css'
 
 const details = () => {
 
