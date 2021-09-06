@@ -23,7 +23,7 @@ const CountriesList = ({ term }) => {
                 if (res.status === 200) {
                     const jsonData = await res.json();
                     setData(jsonData);
-                setFlag(true);
+                    setFlag(true);
 
                 }
                 else {
@@ -41,7 +41,7 @@ const CountriesList = ({ term }) => {
     const dateTime = (inp) => {
 
         var d = new Date();
-    var utc =  d.getTime() + (d.getTimezoneOffset()*60000)
+        var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
 
         var dateTime = "";
         var offset = 0;
@@ -51,7 +51,7 @@ const CountriesList = ({ term }) => {
                 + parseInt(inp.substring(7));
 
             if (inp.substring(3, 4) === '-')
-            offset = - offset;
+                offset = - offset;
 
         }
 
@@ -61,9 +61,19 @@ const CountriesList = ({ term }) => {
             "July", "August", "September", "October", "November", "December"
         ];
 
+        var tempDate = nd.getDate();
+        if (tempDate == '1' || tempDate == '21' || tempDate == '31')
+            dateTime += tempDate + "st";
+        else if (tempDate === '2' || tempDate === '22')
+            dateTime += tempDate + "nd";
+        else if (tempDate == '3' || tempDate == '23')
+            dateTime += tempDate + "rd";
+        else
+            dateTime += tempDate + "th";
 
         var tempDate = nd.getMonth();
-        dateTime = nd.getDate()
+        
+        dateTime = dateTime
             + " " + monthList[tempDate]
             + " " + nd.getFullYear()
             + ", " + ((nd.getHours().toString().length === 1) ? "0" + nd.getHours() : nd.getHours())
@@ -74,7 +84,7 @@ const CountriesList = ({ term }) => {
 
 
     const cardList = data.map((card) => {
- 
+
         return (
 
             <div className="card" key={card.name}>
@@ -95,8 +105,8 @@ const CountriesList = ({ term }) => {
             </div>
         );
     });
-    if(!flag){
-        return <div><h2 style={{color: 'red'}}>Result not found!</h2></div>
+    if (!flag) {
+        return <div><h2 style={{ color: 'red' }}>Result not found!</h2></div>
     }
     return (
 
