@@ -105,12 +105,19 @@ const CountriesList = ({ term }) => {
                     <span className="card-content">Currency: {card.currencies[0].name}</span>
                     <span className="card-content">Current date and time: {dateTime(card.timezones[0])}</span>
                     <div className="btn-div">
-                        <a href={`https://www.google.com/maps/@${card.latlng[0]},${card.latlng[1]},${zIndex(card.area)}z`}>
+                        <a href={`https://www.google.com/maps/@${card.latlng[0]},${card.latlng[1]},${zIndex(card.area)}z`}
+                            target="_blank"
+                            rel="noreferrer">
                             <button>Show Map</button>
                         </a>
 
-                        <Link href="/[name]" as={`/${card.name}`}>
-                            <button>Details</button>
+                        <Link href="/[name]"
+                            as={`/${card.name}`}>
+                            <a target="_blank"
+                                rel="noreferrer">
+                                <button>Details</button>
+                            </a>
+
                         </Link>
                     </div>
                 </div>
@@ -131,3 +138,7 @@ const CountriesList = ({ term }) => {
 };
 
 export default CountriesList;
+
+// https://www.google.com/maps/search/60.116667%C2%B000'00.0%22N+19.9%C2%B000'00.0%22E/@23.9720321,151.3779518,3.34z
+
+// https://www.google.com/maps/@33,65,6z
