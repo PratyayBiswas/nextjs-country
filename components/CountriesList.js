@@ -72,7 +72,7 @@ const CountriesList = ({ term }) => {
             dateTime += tempDate + "th";
 
         var tempDate = nd.getMonth();
-        
+
         dateTime = dateTime
             + " " + monthList[tempDate]
             + " " + nd.getFullYear()
@@ -82,8 +82,19 @@ const CountriesList = ({ term }) => {
         return dateTime;
     }
 
+    const zIndex = (number) => {
+        if (number === null)
+            return 17;
+
+        var num = 17 - (Math.log(number) / Math.log(4));
+        return num.toFixed(2);
+    }
+
+    let arr = [];
 
     const cardList = data.map((card) => {
+
+        arr.push(card.area);
 
         return (
 
@@ -94,17 +105,20 @@ const CountriesList = ({ term }) => {
                     <span className="card-content">Currency: {card.currencies[0].name}</span>
                     <span className="card-content">Current date and time: {dateTime(card.timezones[0])}</span>
                     <div className="btn-div">
-                        <button>Show Map</button>
-                        <button>
-                            <Link href="/[name]" as={`/${card.name}`}>Details
-                            </Link>
-                        </button>
+                        <a href={`https://www.google.com/maps/@${card.latlng[0]},${card.latlng[1]},${zIndex(card.area)}z`}>
+                            <button>Show Map</button>
+                        </a>
+
+                        <Link href="/[name]" as={`/${card.name}`}>
+                            <button>Details</button>
+                        </Link>
                     </div>
                 </div>
 
             </div>
         );
     });
+
     if (!flag) {
         return <div><h2 style={{ color: 'red' }}>Result not found!</h2></div>
     }

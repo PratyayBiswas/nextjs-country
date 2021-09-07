@@ -6,12 +6,17 @@ import React from 'react'
 export default function Home() {
 
   const [term, setTerm] = useState("");
+  const [changeTerm, setChangeTerm] = useState("");
 
-  const onSubmit = (event) => {
-    if (event.key === 'Enter') {
-      setTerm(event.target.value);
-    }
-  }
+  useEffect(() => {
+    const timeId = setTimeout(() => {
+      setTerm(changeTerm);
+    }, 500);
+
+    return () => {
+      clearTimeout(timeId);
+    };
+  }, [changeTerm])
 
   return (
 
@@ -25,11 +30,16 @@ export default function Home() {
       <h1 className="heading">Countries</h1>
 
       <div className="form-search">
-        <input type="text" className="form-control" placeholder="Search countries" onKeyDown={onSubmit} />
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Search countries"
+          // onKeyDown={onSubmit} 
+          onChange={e => setChangeTerm(e.target.value)} />
         <i className="fas fa-search"></i>
       </div>
 
-      <CountriesList  term={term}  />
+      <CountriesList term={term} />
     </div>
 
   )
